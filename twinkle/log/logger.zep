@@ -24,7 +24,6 @@ class Logger extends AbstractLogger
         if isset context["trace"] {
             let trace = context["trace"];
             unset context["trace"];
-        
         } else {
             let trace =  debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         }

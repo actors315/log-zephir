@@ -13,22 +13,23 @@ class File extends Log
     const ROTATE_DAY = "day";
     const ROTATE_MONTH = "month";
     const ROTATE_YEAR = "year";
-    protected static ROTATE_MAP = [self::ROTATE_HOUR : ["Y/m/d", "H_"], self::ROTATE_DAY : "Y/m/d", self::ROTATE_MONTH : "Y/m", self::ROTATE_YEAR : "Y"];
     public logFile = "error.log";
     public logPath = ".";
     public rotate = self::ROTATE_DAY;
     public function init(config) -> void
     {
         var prefix, path;
+
+        var rotateMap = [self::ROTATE_HOUR : ["Y/m/d", "H_"], self::ROTATE_DAY : "Y/m/d", self::ROTATE_MONTH : "Y/m", self::ROTATE_YEAR : "Y"];
     
         parent::init(config);
         let prefix = "";
-        if isset self::ROTATE_MAP[this->rotate] {
-            if is_array(self::ROTATE_MAP[this->rotate]) {
-                let prefix =  date(self::ROTATE_MAP[this->rotate][1]);
-                let path =  date(self::ROTATE_MAP[this->rotate][0]);
+        if isset rotateMap[this->rotate] {
+            if is_array(rotateMap[this->rotate]) {
+                let prefix =  date(rotateMap[this->rotate][1]);
+                let path =  date(rotateMap[this->rotate][0]);
             } else {
-                let path =  date(self::ROTATE_MAP[this->rotate]);
+                let path =  date(rotateMap[this->rotate]);
             }
             let this->logPath =  this->logPath . DIRECTORY_SEPARATOR . str_replace("/", DIRECTORY_SEPARATOR, path);
         }
@@ -38,7 +39,7 @@ class File extends Log
         let this->logFile =  this->logPath . DIRECTORY_SEPARATOR . prefix . this->logFile;
     }
     
-    public function process(level, trace, message, context) -> void
+    public function process(string level, array trace, string message, array context) -> void
     {
         var log;
     

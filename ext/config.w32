@@ -10,7 +10,10 @@ if (PHP_TWINKLE != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/twinkle/log", "logger.zep.c storageinterface.zep.c", "twinkle");
+  ADD_SOURCES(configure_module_dirname + "/twinkle/log", "storageinterface.zep.c logger.zep.c request.zep.c", "twinkle");
+	ADD_SOURCES(configure_module_dirname + "/twinkle/log/drivers", "log.zep.c file.zep.c", "twinkle");
+	ADD_SOURCES(configure_module_dirname + "/twinkle/log/format", "base.zep.c fileline.zep.c", "twinkle");
+	ADD_SOURCES(configure_module_dirname + "/twinkle", "0__closure.zep.c", "twinkle");
   ADD_FLAG("CFLAGS_TWINKLE", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("LDFLAGS", "/LTCG");

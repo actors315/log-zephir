@@ -24,7 +24,13 @@
 
 
 zend_class_entry *twinkle_log_storageinterface_ce;
+zend_class_entry *twinkle_log_drivers_log_ce;
+zend_class_entry *twinkle_log_format_base_ce;
+zend_class_entry *twinkle_0__closure_ce;
+zend_class_entry *twinkle_log_drivers_file_ce;
+zend_class_entry *twinkle_log_format_fileline_ce;
 zend_class_entry *twinkle_log_logger_ce;
+zend_class_entry *twinkle_log_request_ce;
 
 ZEND_DECLARE_MODULE_GLOBALS(twinkle)
 
@@ -37,7 +43,13 @@ static PHP_MINIT_FUNCTION(twinkle)
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
 	ZEPHIR_INIT(Twinkle_Log_StorageInterface);
+	ZEPHIR_INIT(Twinkle_Log_Drivers_Log);
+	ZEPHIR_INIT(Twinkle_Log_Format_Base);
+	ZEPHIR_INIT(Twinkle_Log_Drivers_File);
+	ZEPHIR_INIT(Twinkle_Log_Format_FileLine);
 	ZEPHIR_INIT(Twinkle_Log_Logger);
+	ZEPHIR_INIT(Twinkle_Log_Request);
+	ZEPHIR_INIT(twinkle_0__closure);
 	
 	return SUCCESS;
 }

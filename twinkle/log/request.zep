@@ -26,8 +26,10 @@ class Request
     
     public function getRequestId()
     {
-        if !(empty(this->requestId)) {
-            return this->requestId;
+        var hash,data;
+
+        if !(empty(self::requestId)) {
+            return self::requestId;
         }
         if function_exists("session_create_id") {
             let hash =  session_create_id();
@@ -42,8 +44,8 @@ class Request
             let hash =  hash("ripemd128", md5(data));
         }
         let hash =  strtoupper(hash);
-        let this->requestId =  substr(hash, 0, 8) . "-" . substr(hash, 8, 4) . "-" . substr(hash, 12, 4) . "-" . substr(hash, 16, 4) . "-";
-        return this->requestId;
+        let self::requestId =  substr(hash, 0, 8) . "-" . substr(hash, 8, 4) . "-" . substr(hash, 12, 4) . "-" . substr(hash, 16, 4) . "-";
+        return self::requestId;
     }
 
 }

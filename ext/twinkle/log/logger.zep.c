@@ -84,13 +84,13 @@ PHP_METHOD(Twinkle_Log_Logger, log) {
 	} else {
 		ZVAL_LONG(&_0$$4, 2);
 		ZVAL_LONG(&_1$$4, 2);
-		ZEPHIR_CALL_FUNCTION(&trace, "debug_backtrace", NULL, 1, &_0$$4, &_1$$4);
+		ZEPHIR_CALL_FUNCTION(&trace, "debug_backtrace", NULL, 12, &_0$$4, &_1$$4);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_VAR(&_2);
 	if (!(ZEPHIR_IS_EMPTY(&trace))) {
 		ZEPHIR_OBS_NVAR(&_2);
-		zephir_array_fetch_long(&_2, &trace, 1, PH_NOISY, "twinkle/log/logger.zep", 31 TSRMLS_CC);
+		zephir_array_fetch_long(&_2, &trace, 1, PH_NOISY, "twinkle/log/logger.zep", 30 TSRMLS_CC);
 	} else {
 		ZEPHIR_INIT_NVAR(&_2);
 		array_init(&_2);

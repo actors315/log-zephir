@@ -9,8 +9,14 @@ if test "$PHP_TWINKLE" = "yes"; then
 	fi
 
 	AC_DEFINE(HAVE_TWINKLE, 1, [Whether you have Twinkle])
-	twinkle_sources="twinkle.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c twinkle/log/logger.zep.c
-	twinkle/log/storageinterface.zep.c "
+	twinkle_sources="twinkle.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c twinkle/log/storageinterface.zep.c
+	twinkle/log/drivers/log.zep.c
+	twinkle/log/format/base.zep.c
+	twinkle/log/drivers/file.zep.c
+	twinkle/log/format/fileline.zep.c
+	twinkle/log/logger.zep.c
+	twinkle/log/request.zep.c
+	twinkle/0__closure.zep.c "
 	PHP_NEW_EXTENSION(twinkle, $twinkle_sources, $ext_shared,, )
 	PHP_SUBST(TWINKLE_SHARED_LIBADD)
 

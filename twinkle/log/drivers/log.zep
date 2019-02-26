@@ -47,7 +47,7 @@ abstract class Log implements StorageInterface
     {
         var method;
     
-        let key =  preg_replace_callback("/([-_]+([a-z]{1}))/i", function ($matches) {
+        let key =  preg_replace_callback("/([-_]+([a-z]{1}))/i", function (matches) {
             return strtoupper(matches[2]);
         }, key);
         let method = "set{key}";

@@ -16,7 +16,7 @@ interface StorageInterface
      * @param array $context 日志额外信息
      * @return mixed
      */
-    public function process(string level, array trace, string message, array context);
+    public function process(string level, array trace, string message, array context) -> void;
     
     /**
      * @desc  日志写入方法
