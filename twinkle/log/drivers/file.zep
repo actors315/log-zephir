@@ -34,7 +34,7 @@ class File extends Log
             let this->logPath =  this->logPath . DIRECTORY_SEPARATOR . str_replace("/", DIRECTORY_SEPARATOR, path);
         }
         if !(is_dir(this->logPath)) {
-            mkdir(this->logPath, 511, true);
+            mkdir(this->logPath, 0766, true);
         }
         let this->logFile =  this->logPath . DIRECTORY_SEPARATOR . prefix . this->logFile;
     }

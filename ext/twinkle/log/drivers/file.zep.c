@@ -152,7 +152,7 @@ PHP_METHOD(Twinkle_Log_Drivers_File, init) {
 	zephir_check_call_status();
 	if (!(zephir_is_true(&_21))) {
 		zephir_read_property(&_22$$6, this_ptr, SL("logPath"), PH_NOISY_CC | PH_READONLY);
-		ZVAL_LONG(&_23$$6, 511);
+		ZVAL_LONG(&_23$$6, 0766);
 		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 7, &_22$$6, &_23$$6, &__$true);
 		zephir_check_call_status();
 	}
