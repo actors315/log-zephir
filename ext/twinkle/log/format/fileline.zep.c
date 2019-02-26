@@ -95,7 +95,7 @@ PHP_METHOD(Twinkle_Log_Format_FileLine, format) {
 	ZEPHIR_GET_CONSTANT(&_7, "PHP_EOL");
 	ZEPHIR_INIT_LNVAR(_1);
 	ZEPHIR_CONCAT_SV(&_1, "[%s] [%s] %s [%s] %s %s", &_7);
-	ZEPHIR_RETURN_CALL_FUNCTION("vsprintf", NULL, 11, &_1, &tmpArrayc2ff64872f133cd57549a0072e223128);
+	ZEPHIR_RETURN_CALL_FUNCTION("vsprintf", NULL, 12, &_1, &tmpArrayc2ff64872f133cd57549a0072e223128);
 	zephir_check_call_status();
 	RETURN_MM();
 

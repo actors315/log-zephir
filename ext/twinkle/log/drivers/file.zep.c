@@ -148,12 +148,12 @@ PHP_METHOD(Twinkle_Log_Drivers_File, init) {
 		zephir_update_property_zval(this_ptr, SL("logPath"), &_19$$3);
 	}
 	zephir_read_property(&_20, this_ptr, SL("logPath"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_21, "is_dir", NULL, 6, &_20);
+	ZEPHIR_CALL_FUNCTION(&_21, "is_dir", NULL, 7, &_20);
 	zephir_check_call_status();
 	if (!(zephir_is_true(&_21))) {
 		zephir_read_property(&_22$$6, this_ptr, SL("logPath"), PH_NOISY_CC | PH_READONLY);
 		ZVAL_LONG(&_23$$6, 0766);
-		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 7, &_22$$6, &_23$$6, &__$true);
+		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 8, &_22$$6, &_23$$6, &__$true);
 		zephir_check_call_status();
 	}
 	zephir_read_property(&_24, this_ptr, SL("logPath"), PH_NOISY_CC | PH_READONLY);
@@ -194,11 +194,11 @@ PHP_METHOD(Twinkle_Log_Drivers_File, process) {
 
 	ZEPHIR_INIT_VAR(&log);
 	object_init_ex(&log, twinkle_log_format_fileline_ce);
-	ZEPHIR_CALL_METHOD(NULL, &log, "__construct", NULL, 8, &message, &trace, &level, &context);
+	ZEPHIR_CALL_METHOD(NULL, &log, "__construct", NULL, 9, &message, &trace, &level, &context);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, SL("useBuffer"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_is_true(&_0)) {
-		ZEPHIR_CALL_METHOD(&_1$$3, &log, "format", NULL, 9);
+		ZEPHIR_CALL_METHOD(&_1$$3, &log, "format", NULL, 10);
 		zephir_check_call_status();
 		zephir_update_property_array_append(this_ptr, SL("logQueue"), &_1$$3 TSRMLS_CC);
 		zephir_read_property(&_2$$3, this_ptr, SL("logQueue"), PH_NOISY_CC | PH_READONLY);
@@ -232,7 +232,7 @@ PHP_METHOD(Twinkle_Log_Drivers_File, write) {
 
 	zephir_read_property(&_0, this_ptr, SL("logFile"), PH_NOISY_CC | PH_READONLY);
 	ZVAL_LONG(&_1, 8);
-	ZEPHIR_RETURN_CALL_FUNCTION("file_put_contents", NULL, 10, &_0, line, &_1);
+	ZEPHIR_RETURN_CALL_FUNCTION("file_put_contents", NULL, 11, &_0, line, &_1);
 	zephir_check_call_status();
 	RETURN_MM();
 

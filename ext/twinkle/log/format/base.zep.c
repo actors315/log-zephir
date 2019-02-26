@@ -90,7 +90,7 @@ PHP_METHOD(Twinkle_Log_Format_Base, __construct) {
 	zephir_update_property_zval(this_ptr, SL("level"), level);
 	zephir_update_property_zval(this_ptr, SL("message"), message);
 	zephir_update_property_zval(this_ptr, SL("location"), location);
-	ZEPHIR_CALL_CE_STATIC(&_2, twinkle_log_request_ce, "singleton", &_3, 0);
+	ZEPHIR_CALL_CE_STATIC(&_2, twinkle_log_request_ce, "singleton", &_3, 6);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_4, &_2, "getrequestid", NULL, 0);
 	zephir_check_call_status();

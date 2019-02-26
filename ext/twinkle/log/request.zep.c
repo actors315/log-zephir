@@ -63,7 +63,7 @@ PHP_METHOD(Twinkle_Log_Request, singleton) {
 	if (Z_TYPE_P(&_0) == IS_NULL) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, twinkle_log_request_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 13);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 14);
 		zephir_check_call_status();
 		zend_update_static_property(twinkle_log_request_ce, ZEND_STRL("instance"), &_1$$3);
 	}
@@ -117,12 +117,12 @@ PHP_METHOD(Twinkle_Log_Request, getRequestId) {
 		RETURN_CTOR(&_1$$3);
 	}
 	if ((zephir_function_exists_ex(SL("session_create_id") TSRMLS_CC) == SUCCESS)) {
-		ZEPHIR_CALL_FUNCTION(&hash, "session_create_id", NULL, 14);
+		ZEPHIR_CALL_FUNCTION(&hash, "session_create_id", NULL, 15);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_VAR(&_2$$5);
 		ZVAL_STRING(&_2$$5, "");
-		ZEPHIR_CALL_FUNCTION(&data, "uniqid", NULL, 15, &_2$$5, &__$true);
+		ZEPHIR_CALL_FUNCTION(&data, "uniqid", NULL, 16, &_2$$5, &__$true);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_3$$5);
 		if (zephir_array_isset_string(&_SERVER, SL("REQUEST_TIME"))) {
@@ -182,7 +182,7 @@ PHP_METHOD(Twinkle_Log_Request, getRequestId) {
 		zephir_md5(&_2$$5, &data);
 		ZEPHIR_INIT_VAR(&_9$$5);
 		ZVAL_STRING(&_9$$5, "ripemd128");
-		ZEPHIR_CALL_FUNCTION(&hash, "hash", NULL, 16, &_9$$5, &_2$$5);
+		ZEPHIR_CALL_FUNCTION(&hash, "hash", NULL, 17, &_9$$5, &_2$$5);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_VAR(&_10);

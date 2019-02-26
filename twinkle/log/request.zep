@@ -16,10 +16,10 @@ class Request
     {
     }
     
-    public static function singleton()
+    final public static function singleton()
     {
         if self::instance == null {
-            let self::instance =  new self();
+            let self::instance =  new static();
         }
         return self::instance;
     }
