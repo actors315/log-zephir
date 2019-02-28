@@ -205,7 +205,7 @@ PHP_METHOD(Twinkle_Log_Request, getRequestId) {
 	ZEPHIR_INIT_VAR(&_21);
 	zephir_substr(&_21, &hash, 16 , 4 , 0);
 	ZEPHIR_INIT_VAR(&_22);
-	ZEPHIR_CONCAT_VSVSVSVS(&_22, &_10, "-", &_15, "-", &_18, "-", &_21, "-");
+	ZEPHIR_CONCAT_VSVSVSV(&_22, &_10, "-", &_15, "-", &_18, "-", &_21);
 	zend_update_static_property(twinkle_log_request_ce, ZEND_STRL("requestId"), &_22);
 	zephir_read_static_property_ce(&_23, twinkle_log_request_ce, SL("requestId"), PH_NOISY_CC | PH_READONLY);
 	RETURN_CTOR(&_23);

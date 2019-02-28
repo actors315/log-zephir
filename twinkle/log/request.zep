@@ -44,7 +44,7 @@ class Request
             let hash =  hash("ripemd128", md5(data));
         }
         let hash =  strtoupper(hash);
-        let self::requestId =  substr(hash, 0, 8) . "-" . substr(hash, 8, 4) . "-" . substr(hash, 12, 4) . "-" . substr(hash, 16, 4) . "-";
+        let self::requestId =  substr(hash, 0, 8) . "-" . substr(hash, 8, 4) . "-" . substr(hash, 12, 4) . "-" . substr(hash, 16, 4);
         return self::requestId;
     }
 

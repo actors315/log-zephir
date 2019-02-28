@@ -41,11 +41,11 @@ ZEPHIR_INIT_CLASS(Twinkle_Log_Format_FileLine) {
  */
 PHP_METHOD(Twinkle_Log_Format_FileLine, format) {
 
-	zval tmpArrayc2ff64872f133cd57549a0072e223128, _0, _1, _2, _3, _4, _5, _6, _7, _8;
+	zval data, _0, _1, _2, _3, _4, _5, _6, _7, _8;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
-	ZVAL_UNDEF(&tmpArrayc2ff64872f133cd57549a0072e223128);
+	ZVAL_UNDEF(&data);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
@@ -58,14 +58,14 @@ PHP_METHOD(Twinkle_Log_Format_FileLine, format) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_INIT_VAR(&tmpArrayc2ff64872f133cd57549a0072e223128);
-	zephir_create_array(&tmpArrayc2ff64872f133cd57549a0072e223128, 6, 0 TSRMLS_CC);
+	ZEPHIR_INIT_VAR(&data);
+	zephir_create_array(&data, 6, 0 TSRMLS_CC);
 	ZEPHIR_OBS_VAR(&_0);
 	zephir_read_property(&_0, this_ptr, SL("requestId"), PH_NOISY_CC);
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_0);
+	zephir_array_fast_append(&data, &_0);
 	ZEPHIR_OBS_NVAR(&_0);
 	zephir_read_property(&_0, this_ptr, SL("createTime"), PH_NOISY_CC);
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_0);
+	zephir_array_fast_append(&data, &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZEPHIR_OBS_NVAR(&_0);
 	zephir_read_property(&_0, this_ptr, SL("location"), PH_NOISY_CC);
@@ -74,28 +74,28 @@ PHP_METHOD(Twinkle_Log_Format_FileLine, format) {
 		ZVAL_STRING(&_1, "");
 	} else {
 		zephir_read_property(&_2, this_ptr, SL("location"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_3, &_2, SL("file"), PH_NOISY | PH_READONLY, "twinkle/log/format/fileline.zep", 19 TSRMLS_CC);
+		zephir_array_fetch_string(&_3, &_2, SL("file"), PH_NOISY | PH_READONLY, "twinkle/log/format/fileline.zep", 22 TSRMLS_CC);
 		zephir_read_property(&_4, this_ptr, SL("location"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_5, &_4, SL("line"), PH_NOISY | PH_READONLY, "twinkle/log/format/fileline.zep", 19 TSRMLS_CC);
+		zephir_array_fetch_string(&_5, &_4, SL("line"), PH_NOISY | PH_READONLY, "twinkle/log/format/fileline.zep", 22 TSRMLS_CC);
 		ZEPHIR_INIT_NVAR(&_1);
 		ZEPHIR_CONCAT_SVSVS(&_1, "file[", &_3, "]  line[", &_5, "]");
 	}
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_1);
+	zephir_array_fast_append(&data, &_1);
 	ZEPHIR_OBS_VAR(&_6);
 	zephir_read_property(&_6, this_ptr, SL("level"), PH_NOISY_CC);
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_6);
+	zephir_array_fast_append(&data, &_6);
 	ZEPHIR_OBS_NVAR(&_6);
 	zephir_read_property(&_6, this_ptr, SL("message"), PH_NOISY_CC);
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_6);
+	zephir_array_fast_append(&data, &_6);
 	ZEPHIR_INIT_VAR(&_7);
 	zephir_read_property(&_8, this_ptr, SL("content"), PH_NOISY_CC | PH_READONLY);
 	zephir_json_encode(&_7, &_8, 0 );
-	zephir_array_fast_append(&tmpArrayc2ff64872f133cd57549a0072e223128, &_7);
+	zephir_array_fast_append(&data, &_7);
 	ZEPHIR_INIT_NVAR(&_7);
 	ZEPHIR_GET_CONSTANT(&_7, "PHP_EOL");
 	ZEPHIR_INIT_LNVAR(_1);
 	ZEPHIR_CONCAT_SV(&_1, "[%s] [%s] %s [%s] %s %s", &_7);
-	ZEPHIR_RETURN_CALL_FUNCTION("vsprintf", NULL, 12, &_1, &tmpArrayc2ff64872f133cd57549a0072e223128);
+	ZEPHIR_RETURN_CALL_FUNCTION("vsprintf", NULL, 12, &_1, &data);
 	zephir_check_call_status();
 	RETURN_MM();
 

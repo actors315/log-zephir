@@ -14,10 +14,17 @@ class FileLine extends Base
      */
     public function format() -> string
     {
-        var tmpArrayc2ff64872f133cd57549a0072e223128;
+        var data;
     
-        let tmpArrayc2ff64872f133cd57549a0072e223128 = [this->requestId, this->createTime,  empty(this->location) ? ""  : "file[".this->location["file"]."]  line[".this->location["line"]."]", this->level, this->message, json_encode(this->content)];
-        return vsprintf("[%s] [%s] %s [%s] %s %s" . PHP_EOL, tmpArrayc2ff64872f133cd57549a0072e223128);
+        let data = [
+            this->requestId,
+            this->createTime,
+            empty(this->location) ? ""  : "file[".this->location["file"]."]  line[".this->location["line"]."]",
+            this->level,
+            this->message,
+            json_encode(this->content)
+        ];
+        return vsprintf("[%s] [%s] %s [%s] %s %s" . PHP_EOL, data);
     }
     
     public function __toString()
